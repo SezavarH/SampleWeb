@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaraTech - Advanced Media Compression Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a2e; /* Darker background */
+            color: #e0e0e0; /* Lighter text for contrast */
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header/Navigation */
+        header {
+            background-color: #0f0f1d; /* Even darker header */
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.9em;
+            font-weight: 600;
+            color: #e94560; /* Accent color for logo */
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #b0b0b0; /* Lighter color for nav links */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #e94560; /* Accent color on hover */
+        }
+
+        /* Hero Section */
+        #introduction {
+            background: linear-gradient(to right, #242442, #39395f); /* Darker gradient */
+            color: #fff;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid #333;
+        }
+
+        #introduction::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(233,69,96,0.1); /* Accent color transparency */
+            border-radius: 50%;
+            animation: moveShape 10s infinite alternate;
+        }
+
+        #introduction::after {
+            content: '';
+            position: absolute;
+            bottom: -70px;
+            right: -70px;
+            width: 180px;
+            height: 180px;
+            background: rgba(52, 152, 219, 0.1); /* Another accent */
+            border-radius: 50%;
+            animation: moveShape 12s infinite alternate-reverse;
+        }
+
+        @keyframes moveShape {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(20px, 20px) scale(1.1); }
+        }
+
+        #introduction h1 {
+            font-size: 3.8em;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        #introduction p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #d0d0d0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e94560; /* Main accent color */
+            color: #fff;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(233,69,96,0.3);
+        }
+
+        .btn:hover {
+            background-color: #d63854; /* Darker accent on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233,69,96,0.4);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 90px 0;
+            background-color: #1a1a2e; /* Darker background */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2); /* Darker shadows */
+            border-radius: 8px;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #242442; /* Slightly different dark for even sections */
+        }
+
+        h2 {
+            font-size: 2.8em;
+            color: #e0e0e0;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 90px;
+            height: 4px;
+            background-color: #e94560; /* Accent line */
+            margin: 18px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Company Goal */
+        #goal .goal-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 0 50px;
+            flex-wrap: wrap;
+            color: #b0b0b0;
+        }
+
+        #goal .goal-content img {
+            max-width: 450px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 2px solid #3a3a5a; /* Subtle border */
+        }
+
+        #goal .goal-text {
+            flex: 1;
+        }
+
+        #goal .goal-text p {
+            font-size: 1.15em;
+            margin-bottom: 18px;
+        }
+
+        /* Team Section */
+        #team .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .team-member {
+            background-color: #242442;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #3a3a5a;
+        }
+
+        .team-member:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+            background-color: #2e2e52; /* Slightly lighter on hover */
+        }
+
+        .team-member img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #e94560; /* Accent border */
+            padding: 3px;
+            box-shadow: 0 0 0 3px rgba(233,69,96,0.2);
+        }
+
+        .team-member h3 {
+            font-size: 1.6em;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+
+        .team-member p {
+            color: #a0a0a0;
+            font-size: 1em;
+        }
+
+        /* Products Section */
+        #products .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background-color: #242442;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #3a3a5a;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+            background-color: #2e2e52;
+        }
+
+        .product-card .product-img {
+            height: 220px;
+            background-color: #3a3a5a; /* Darker background for product image area */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5em;
+            color: #8e44ad; /* Another accent for icons */
+            border-bottom: 1px solid #4a4a6a;
+        }
+
+        .product-card .product-content {
+            padding: 30px;
+            flex-grow: 1;
+            color: #b0b0b0;
+        }
+
+        .product-card h3 {
+            font-size: 1.9em;
+            margin-bottom: 12px;
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+
+        .product-card p {
+            font-size: 1em;
+            margin-bottom: 25px;
+        }
+
+        .product-card .btn {
+            align-self: flex-start;
+            padding: 10px 22px;
+            font-size: 1em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f0f1d; /* Darker footer */
+            color: #b0b0b0;
+            padding: 60px 0;
+            text-align: center;
+            border-top: 2px solid #333;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer .footer-links {
+            margin-top: 25px;
+        }
+
+        footer .footer-links a {
+            color: #b0b0b0;
+            font-size: 1.8em;
+            margin: 0 18px;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover {
+            color: #e94560; /* Accent color on social hover */
+        }
+
+        footer p {
+            margin-top: 25px;
+            font-size: 1em;
+            color: #909090;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 8px 15px;
+            }
+
+            #introduction h1 {
+                font-size: 2.8em;
+            }
+
+            #introduction p {
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 2.2em;
+            }
+
+            #goal .goal-content {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            #goal .goal-content img {
+                max-width: 100%;
+            }
+
+            .team-grid, .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">FaraTech</a>
+            <nav>
+                <ul>
+                    <li><a href="#introduction">Home</a></li>
+                    <li><a href="#goal">Our Goal</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="introduction">
+        <div class="container">
+            <h1>Revolutionizing Media </h1> <h1>with</h1> <h1> <b>FaraTech</b> Compression</h1>
+            <p>At <b>FaraTech</b>, based in the heart of Tehran, we are at the forefront of advanced image and video compression. Our innovative solutions deliver superior quality with significantly reduced file sizes, transforming how you manage and share digital content.</p>
+            <a href="#products" class="btn">Discover Our Innovations</a>
+        </div>
+    </section>
+
+    <section id="goal">
+        <div class="container">
+            <h2>Our Vision: Efficiency Meets Excellence</h2>
+            <div class="goal-content">
+                <img src="https://via.placeholder.com/450x340/3a3a5a/e0e0e0?text=FaraTech+Innovation" alt="FaraTech Innovation and Efficiency">
+                <div class="goal-text">
+                    <p>Our core mission at <b>FaraTech</b> is to optimize the digital world by providing cutting-edge media compression technologies. We are driven by the belief that high-quality visual experiences should be accessible and seamless, free from the constraints of large file sizes and slow loading times.</p>
+                    <p>We are committed to relentless research and development, crafting intelligent algorithms that not only shrink your media files but also enhance their overall performance. From captivating streaming services to efficient cloud storage, <b>FaraTech</b> empowers a faster, more vibrant digital ecosystem for our global clients, originating from Tehran.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2>Meet the Minds Behind <b>FaraTech</b></h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/130x130/555/e0e0e0?text=AA" alt="mohammad">
+                    <h3>Mohammad Abedi</h3>
+                    <p>CEO</p>
+                    <p>A visionary leader with a deep expertise in media processing and computational efficiency.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/130x130/555/e0e0e0?text=SN" alt="ahmadreza">
+                    <h3>Ahmadreza Sezavar</h3>
+                    <p>Head of Software Engineering</p>
+                    <p>Leads our development teams, building robust and scalable compression platforms.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/130x130/555/e0e0e0?text=RM" alt="hossein">
+                    <h3>Hossein Pourgholam</h3>
+                    <p>Director of Product Management</p>
+                    <p>Focuses on user experience and market demand to shape our innovative product roadmap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2>Our Advanced Compression Solutions</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img">📸</div>
+                    <div class="product-content">
+                        <h3>FaraImage Optimizer</h3>
+                        <p>Our flagship image compression tool, ensuring stunning visuals with minimal file size. Perfect for web designers, photographers, and content creators.</p>
+                        <a href="#" class="btn">Discover More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">▶️</div>
+                    <div class="product-content">
+                        <h3>FaraVideo Streamer</h3>
+                        <p>Optimize your video content for lightning-fast streaming and reduced bandwidth usage, without compromising on quality. Ideal for online platforms.</p>
+                        <a href="#" class="btn">Explore Now</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🔗</div>
+                    <div class="product-content">
+                        <h3>FaraConnect API</h3>
+                        <p>Seamlessly integrate FaraTech's powerful compression engine into your existing applications and services through our flexible and scalable API.</p>
+                        <a href="#" class="btn">API Documentation</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">💽</div>
+                    <div class="product-content">
+                        <h3>FaraBatch Desktop</h3>
+                        <p>A powerful offline desktop application for batch processing and compressing large volumes of images and videos with customizable settings.</p>
+                        <a href="#" class="btn">Download Trial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p><strong>FaraTech Headquarters</strong></p>
+            <p>Valiasr St, Tehran, Iran</p>
+            <p>Phone: +98 21 8890 1234</p>
+            <div class="footer-links">
+                <a href="https://facebook.com/faratech" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/faratech" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/company/faratech" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/faratech" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2025 FaraTech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add Font Awesome for social media icons (CDN)
+        const fontAwesomeLink = document.createElement('link');
+        fontAwesomeLink.rel = 'stylesheet';
+        fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css';
+        fontAwesomeLink.integrity = 'sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==';
+        fontAwesomeLink.crossOrigin = 'anonymous';
+        fontAwesomeLink.referrerPolicy = 'no-referrer';
+        document.head.appendChild(fontAwesomeLink);
+    </script>
+</body>
+</html>
